@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
 import '../App.css';
 import SunSignCalculator from '../SunSignCalculator';
 
-function Astro() {
+export default function Astro() {
 //  WIP - natal chart calculator    
 // const [form, setForm] = useState({
 //     date: '',
@@ -80,5 +79,3 @@ function Astro() {
         </div>
     )
 }
-
-export default Astro;

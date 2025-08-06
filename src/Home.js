@@ -11,8 +11,7 @@ function Home() {
   return (
     <div className="App">
       <header className="App-header">
-        Home
-      <Todolist />
+        Welcome home! This site is a testing ground for a variety of React applications.
       </header>
     </div>
   );

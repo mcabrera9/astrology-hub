@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# This is a testing ground
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains personal projects by Michael Cabrera (mcabrera9). The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 

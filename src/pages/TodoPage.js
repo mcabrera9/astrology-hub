@@ -1,12 +1,12 @@
 import '../App.css';
-import Counter from '../Counter';
+import Todo from '../Todo';
 
-export default function CounterPage() {
-     return (
+export default function TodoPage() {
+    return (
         <div className="App">
             <header className="App-header">
-                <Counter />
+                <Todo />
             </header>
         </div>
-     )
+    )
 }
