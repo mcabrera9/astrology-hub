@@ -1,46 +1,46 @@
-import '../App.css';
-import SunSignCalculator from '../SunSignCalculator';
+import "../App.css";
+import SunSignCalculator from "../components/SunSignCalculator";
 
 export default function Astro() {
-//  WIP - natal chart calculator    
-// const [form, setForm] = useState({
-//     date: '',
-//     time: '',
-//     location: '',
-//   });
-//   const [chartData, setChartData] = useState(null);
+  //  WIP - natal chart calculator
+  // const [form, setForm] = useState({
+  //     date: '',
+  //     time: '',
+  //     location: '',
+  //   });
+  //   const [chartData, setChartData] = useState(null);
 
-//   const handleChange = (e) => {
-//     setForm({ ...form, [e.target.name]: e.target.value });
-//   };
+  //   const handleChange = (e) => {
+  //     setForm({ ...form, [e.target.name]: e.target.value });
+  //   };
 
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     // 1. Convert location to lat/lng
-//     const geoRes = await axios.get(`https://nominatim.openstreetmap.org/search`, {
-//       params: {
-//         q: form.location,
-//         format: 'json',
-//         limit: 1,
-//       }
-//     });
+  //   const handleSubmit = async (e) => {
+  //     e.preventDefault();
+  //     // 1. Convert location to lat/lng
+  //     const geoRes = await axios.get(`https://nominatim.openstreetmap.org/search`, {
+  //       params: {
+  //         q: form.location,
+  //         format: 'json',
+  //         limit: 1,
+  //       }
+  //     });
 
-//     const { lat, lon } = geoRes.data[0];
+  //     const { lat, lon } = geoRes.data[0];
 
-//     const astroRes = await axios.post('https://your-astro-api.com/calculate', {
-//       date: form.date,
-//       time: form.time,
-//       latitude: lat,
-//       longitude: lon,
-//     });
+  //     const astroRes = await axios.post('https://your-astro-api.com/calculate', {
+  //       date: form.date,
+  //       time: form.time,
+  //       latitude: lat,
+  //       longitude: lon,
+  //     });
 
-//     setChartData(astroRes.data); // Should contain planet positions, houses, etc.
-//   };
-    return (
-        <div className="App">
-            <header className="App-header">
-                Astro page
-                <SunSignCalculator />
+  //     setChartData(astroRes.data); // Should contain planet positions, houses, etc.
+  //   };
+  return (
+    <div className="App">
+      <header className="App-header">
+        Astro page
+        <SunSignCalculator />
         {/* WIP
         <p>
           Natal chart calculator
@@ -75,7 +75,7 @@ export default function Astro() {
         </button>
       </form>
       <button>Click here to generate natal chart</button> */}
-            </header>
-        </div>
-    )
+      </header>
+    </div>
+  );
 }

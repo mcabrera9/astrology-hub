@@ -11,8 +11,8 @@ function Navbar() {
             <NavLink to="/astro" className="nav-link">
                 Astro
             </NavLink>
-            <NavLink to="/counterpage" className="nav-link">
-                Counter
+            <NavLink to="/natalcalc" className="nav-link">
+                NatalChart
             </NavLink>
             <NavLink to="/todopage" className="nav-link">
                 To Do

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './Navbar';
-import { Astro, CounterPage, TodoPage } from './pages';
+import { Astro, CounterPage, TodoPage, Chart } from './pages';
 import Home from './Home';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/astro" element={<Astro />} />
-          <Route path="/counterpage" element={<CounterPage />} />
+          <Route path="/natalcalc" element={<Chart />} />
           <Route path="/todopage" element={<TodoPage />} />
         </Routes>
       </div>
