@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import api from "../api";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import Box from "@mui/material/Box";
 
 export default function NatalChartCalculator({ onResult }) {
   const [form, setForm] = useState({
@@ -17,7 +21,7 @@ export default function NatalChartCalculator({ onResult }) {
     e.preventDefault();
     setLoading(true);
     try {
-      // Hardcode location here when sending
+      // hardcode location here when sending
       const payload = {
         ...form,
         location: "Chicago, USA",
@@ -36,33 +40,43 @@ export default function NatalChartCalculator({ onResult }) {
   };
 
   return (
-    <form
-      onSubmit={onSubmit}
-      style={{ display: "grid", gap: 12, maxWidth: 320 }}
+    <Stack
+      direction="column"
+      sx={{
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+      spacing={2}
     >
-      <label>
-        Date of birth:
-        <input
-          type="date"
-          name="date"
-          value={form.date}
-          onChange={onChange}
-          required
-        />
-      </label>
-      <label>
-        Time of birth:
-        <input
-          type="time"
-          name="time"
-          value={form.time}
-          onChange={onChange}
-          required
-        />
-      </label>
-      <button type="submit" disabled={loading}>
-        {loading ? "Calculating..." : "Calculate"}
-      </button>
-    </form>
+      <Box>Calculate natal charts for Chicago residents.</Box>
+      <form
+        onSubmit={onSubmit}
+        style={{ display: "grid", gap: 12, maxWidth: 320 }}
+      >
+        <Stack direction="row" spacing={1}>
+          <Box>Date of birth:</Box>
+          <TextField
+            type="date"
+            name="date"
+            value={form.date}
+            onChange={onChange}
+            required
+          />
+        </Stack>
+        <Stack direction="row" spacing={1}>
+          <Box>Time of birth:</Box>
+          <TextField
+            type="time"
+            name="time"
+            value={form.time}
+            onChange={onChange}
+            required
+          />
+        </Stack>
+        <Button variant="contained" type="submit" disabled={loading}>
+          {loading ? "Calculating..." : "Calculate"}
+        </Button>
+      </form>
+    </Stack>
   );
 }

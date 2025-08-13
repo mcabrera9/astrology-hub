@@ -4,6 +4,10 @@ This application is a demo for an application that calculates a natal chart from
 
 Due to API limitations, the input has been limited to input based in Chicago.
 
+## Commands
+Enter the following command to run the API.
+`node server.js`
+
 ## Shape of Calculator Response
 
 `{
