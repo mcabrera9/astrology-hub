@@ -1,56 +1,68 @@
 import React, { useState } from "react";
-import axios from "axios";
+import api from "../api";
 
-export default function NatalCalculator() {
-  const [form, setForm] = useState({ date: "", time: "", location: "" });
-  const [data, setData] = useState();
+export default function NatalChartCalculator({ onResult }) {
+  const [form, setForm] = useState({
+    date: "",
+    time: "",
+    // no location in state anymore
+  });
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const geo = await axios.get("https://nominatim.openstreetmap.org/search", {
-      params: { q: form.location, format: "json", limit: 1 },
-    });
-    const { lat, lon } = geo.data[0];
-    const [year, month, day] = form.date.split("-").map(Number);
-    const [hour, min] = form.time.split(":").map(Number);
-    const res = await axios.post("http://localhost:5000/planets", {
-      year,
-      month,
-      day,
-      hour,
-      min,
-      sec: 0,
-      lat,
-      lon,
-      tzone: -(new Date().getTimezoneOffset() / 60),
-    });
-    setData(res.data);
+  const onChange = (e) => {
+    setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      // Hardcode location here when sending
+      const payload = {
+        ...form,
+        location: "Chicago, USA",
+      };
+      const res = await api.post("/api/natal", payload);
+
+      console.log("API response:", res.data);
+
+      onResult(res.data);
+    } catch (err) {
+      alert("Failed to fetch data. See console.");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={onSubmit}
+      style={{ display: "grid", gap: 12, maxWidth: 320 }}
+    >
+      <label>
+        Date of birth:
         <input
           type="date"
           name="date"
+          value={form.date}
+          onChange={onChange}
           required
-          onChange={(e) => setForm({ ...form, date: e.target.value })}
         />
+      </label>
+      <label>
+        Time of birth:
         <input
           type="time"
           name="time"
+          value={form.time}
+          onChange={onChange}
           required
-          onChange={(e) => setForm({ ...form, time: e.target.value })}
         />
-        <input
-          type="text"
-          name="location"
-          placeholder="City, Country"
-          required
-          onChange={(e) => setForm({ ...form, location: e.target.value })}
-        />
-        <button type="submit">Calculate</button>
-      </form>
-      {data && <pre>{JSON.stringify(data, null, 2)}</pre>}
-    </div>
+      </label>
+      <button type="submit" disabled={loading}>
+        {loading ? "Calculating..." : "Calculate"}
+      </button>
+    </form>
   );
 }

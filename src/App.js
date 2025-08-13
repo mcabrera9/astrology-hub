@@ -1,8 +1,8 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './Navbar';
-import { Astro, CounterPage, TodoPage, Chart } from './pages';
-import Home from './Home';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import { Astro, CounterPage, TodoPage, Chart } from "./pages";
+import Home from "./Home";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         </Routes>
       </div>
     </Router>
-  )
+  );
 }
 
 export default App;
