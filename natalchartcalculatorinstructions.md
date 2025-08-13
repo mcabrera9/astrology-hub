@@ -5,12 +5,21 @@ This application is a demo for an application that calculates a natal chart from
 Due to API limitations, the input has been limited to input based in Chicago.
 
 ## Commands
+
 Enter the following command to run the API.
-`node server.js`
 
-## Shape of Calculator Response
+```
+node server.js
+```
 
-`{
+With the Front End running, enter user info and run the calculation.
+
+## Shape of Response
+
+The full response from the API call will have the following shape.
+
+```
+{
 "input": {
 "date": "2025-08-05",
 "time": "19:28",
@@ -243,4 +252,5 @@ Enter the following command to run the API.
 }
 ]
 }
-}`
+}
+```
